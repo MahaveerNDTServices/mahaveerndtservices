@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.pexels.com https://*.youtube.com; frame-src 'self' https://www.google.com https://www.youtube.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'">
-
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src 'self' https://images.pexels.com https://*.youtube.com;
+    frame-src 'self' https://www.google.com https://www.youtube.com;
+    connect-src 'self' https://script.google.com https://script.googleusercontent.com;
+    style-src 'self' 'unsafe-inline';
+    script-src 'self' 'unsafe-inline';
+  ">
   <title>Mahaveer NDT Services</title>
   <style>
     body {
@@ -158,17 +164,6 @@
     .contact-grid button:hover {
       background: #1e40af;
     }
-    .form-message {
-      text-align: center;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .form-message.success {
-      color: #15803d;
-    }
-    .form-message.error {
-      color: #b91c1c;
-    }
     footer {
       background: #1e3a8a;
       color: #fff;
@@ -213,7 +208,7 @@
   <section id="about" class="about">
     <h2>About Us</h2>
     <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-      Mahaveer NDT Services is a leading provider of Non-Destructive Testing services based in Kota, Rajasthan. 
+      Mahaveer NDT Services is a leading provider of Non-Destructive Testing services based in Kota, Rajasthan.
       We specialize in Radiography, Ultrasonic Testing, Dye Penetrant Testing, and Magnetic Particle Testing,
       ensuring the highest standards of safety and quality for industrial projects.
     </p>
@@ -280,13 +275,17 @@
       </div>
       <div>
         <h3>Send Us a Message</h3>
-        <form id="contact-form" action="https://script.google.com/macros/s/AKfycbz7XAhHsVRlnwEvrYrV7zax-B7RJHTOIBiN5Cjo5z7rgGkrpJGJY6Omuyc-h3Zs/exec" method="POST">
-          <input type="text" name="name" id="name" placeholder="Your Name" required />
-          <input type="email" name="email" id="email" placeholder="Your Email" required />
-          <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+        <form 
+          action="https://script.google.com/macros/s/AKfycbyPCl9GHiFkIP-LMH24s5P3AO2zMRRKgoEQDQ_41MULY0OP0RRECOpQshhUer8_SE00/exec" 
+          method="POST"
+          target="_blank"
+          id="contact-form"
+        >
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Your Message" required></textarea>
           <button type="submit">Send Message</button>
         </form>
-        <div id="form-message" class="form-message"></div>
       </div>
     </div>
   </section>
@@ -302,32 +301,6 @@
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
-      });
-    });
-
-    const contactForm = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
-
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const formData = new FormData(contactForm);
-      const params = new URLSearchParams();
-      for (const [key, value] of formData.entries()) {
-        params.append(key, value);
-      }
-      fetch(contactForm.action, {
-        method: 'POST',
-        body: params
-      })
-      .then(response => response.text())
-      .then(text => {
-        formMessage.textContent = text || "Thank you! Your message has been sent.";
-        formMessage.className = 'form-message success';
-        contactForm.reset();
-      })
-      .catch(() => {
-        formMessage.textContent = "Something went wrong. Please try again later.";
-        formMessage.className = 'form-message error';
       });
     });
   </script>
