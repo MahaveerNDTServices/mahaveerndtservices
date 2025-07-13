@@ -563,29 +563,17 @@
             }
 
             // Send data to Google Apps Script
-            fetch('https://script.google.com/macros/s/AKfycbyPCl9GHiFkIP-LMH24s5P3AO2zMRRKgoEQDQ_41MULY0OP0RRECOpQshhUer8_SE00/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email, message })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    formMessage.textContent = 'Thank you! Your message has been submitted.';
-                    formMessage.className = 'form-message success';
-                    contactForm.reset();
-                } else {
-                    formMessage.textContent = 'Error submitting form: ' + data.message;
-                    formMessage.className = 'form-message error';
-                }
-            })
-            .catch(error => {
-                formMessage.textContent = 'Error submitting form: ' + error.message;
-                formMessage.className = 'form-message error';
-            });
-        });
+           <form 
+  action="https://script.google.com/macros/s/AKfycbyPCl9GHiFkIP-LMH24s5P3AO2zMRRKgoEQDQ_41MULY0OP0RRECOpQshhUer8_SE00/exec" 
+  method="POST" 
+  target="_blank"
+>
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
     </script>
 </body>
 </html>
