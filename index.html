@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahaveer NDT Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f3f4f6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+        nav .nav-links a:hover {
+            color: #93c5fd;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?industrial,testing') center/cover no-repeat;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .hero a {
+            background-color: #f59e0b;
+            color: black;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        .hero a:hover {
+            background-color: #d97706;
+        }
+        section {
+            padding: 60px 20px;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        .about, .equipment, .videos, .contact {
+            background-color: white;
+        }
+        .about p, .contact p {
+            font-size: 18px;
+            color: #4b5563;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .about img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .service-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            color: #6b7280;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .projects table {
+            background-color: white;
+        }
+        .projects img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+        }
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .video-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .video-card iframe, .video-card video {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+        }
+        .video-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .contact-grid h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .contact-grid p {
+            margin-bottom: 10px;
+        }
+        .contact-grid input, .contact-grid textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .contact-grid textarea {
+            height: 120px;
+        }
+        .contact-grid button {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .contact-grid button:hover {
+            background-color: #1e40af;
+        }
+        .map-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .map-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            nav .nav-links a {
+                margin-left: 10px;
+                font-size: 14px;
+            }
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">Mahaveer NDT Services</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#equipment">Equipment</a>
+                <a href="#projects">Projects</a>
+                <a href="#videos">Videos</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to Mahaveer NDT Services</h1>
+            <p>Your trusted partner for Non-Destructive Testing and Radiography Services</p>
+            <a href="#contact">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>
+                Mahaveer NDT Services, based in Kota, Rajasthan, is a leading provider of Non-Destructive Testing (NDT) and radiography services. With experienced and qualified professionals, state-of-the-art equipment, and a commitment to quality, we offer cost-effective solutions tailored to our clients' needs. Our goal is to deliver accurate and timely testing services to ensure customer satisfaction.
+            </p>
+            <img src="https://source.unsplash.com/800x400/?industrial,quality" alt="NDT Professional at Work">
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?radiography" alt="Radiography Testing">
+                    <h3>Radiography Testing (RT)</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?ultrasonic" alt="Ultrasonic Testing">
+                    <h3>Ultrasonic Testing (UT)</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?penetrant-testing" alt="Dye Penetrant Testing">
+                    <h3>Dye Penetrant Testing (DPT)</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?magnetic-testing" alt="Magnetic Particle Testing">
+                    <h3>Magnetic Particle Testing (MPT)</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?material-testing" alt="Positive Material Identification">
+                    <h3>Positive Material Identification (PMI)</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?concrete" alt="Concrete Testing">
+                    <h3>Concrete Testing</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?thickness-measurement" alt="Thickness Measurement">
+                    <h3>Thickness Measurement</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?hardness-testing" alt="Hardness Testing">
+                    <h3>Hardness Testing</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?soil-testing" alt="Soil Testing">
+                    <h3>Soil Testing</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?stress-relieving" alt="Stress Relieving">
+                    <h3>Stress Relieving (SR)</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/400x200/?industrial-heating" alt="Pre and Post Heating">
+                    <h3>Pre and Post Heating</h3>
+                    <p>High-quality testing services to meet industry standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="equipment">
+        <div class="container">
+            <h2>Our Equipment</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Instrument Name</th>
+                        <th>Quantity</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Radiography Camera</td>
+                        <td>07 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>X-Ray Machines</td>
+                        <td>02 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>PMI Machine (OLYMPUS make)</td>
+                        <td>01 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>Ultrasonic Machines</td>
+                        <td>04 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>Ultrasonic Testing Machines</td>
+                        <td>01 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>Concrete Testing Machines</td>
+                        <td>01 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>Thickness Measurement Machines</td>
+                        <td>02 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>Control Panels with PID</td>
+                        <td>20 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>Recorder</td>
+                        <td>20 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>Hardness Testing Machine</td>
+                        <td>01 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                    <tr>
+                        <td>Soil Testing Machine</td>
+                        <td>01 Nos.</td>
+                        <td>Well-maintained and calibrated for reliable performance</td>
+                    </tr>
+                </tbody>
+            </table>
+            <img src="https://source.unsplash.com/800x400/?industrial-equipment" alt="NDT Equipment">
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Site</th>
+                        <th>Company</th>
+                        <th>Inspection Agency</th>
+                        <th>Type of Jobs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Giral Lignite Thermal Power Project Barmer</td>
+                        <td>BEEL, Vijaywada</td>
+                        <td>BHEL</td>
+                        <td>RT, UT, DPT, MPT, RT of Boiler, RT of Boiler Piping and Turbine Piping</td>
+                    </tr>
+                    <tr>
+                        <td>Hindustan Zinc Ltd. Chittorgarh</td>
+                        <td>Cannon Dunkirely and Company Ltd. Mumbai</td>
+                        <td>MECON</td>
+                        <td>RT, UT of Structure</td>
+                    </tr>
+                    <tr>
+                        <td>Adani Thermal Power Project</td>
+                        <td>Adani Power Rajasthan Ltd.</td>
+                        <td>ADANI</td>
+                        <td>Radiography of 1320 MW Boilers</td>
+                    </tr>
+                    <tr>
+                        <td>VADADRI Thermal Power Projects, Nalgonda, Telangana</td>
+                        <td>Santosh Infra Power Projects</td>
+                        <td>Telangana Govt.</td>
+                        <td>RT of Boilers, Project is Running</td>
+                    </tr>
+                </tbody>
+            </table>
+            <img src="https://source.unsplash.com/800x400/?power-plant" alt="Project Site">
+        </div>
+    </section>
+
+    <section id="videos" class="videos">
+        <div class="container">
+            <h2>Our Videos</h2>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="NDT Demonstration 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>NDT Demonstration 1</h3>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="NDT Demonstration 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>NDT Demonstration 2</h3>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="NDT Demonstration 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>NDT Demonstration 3</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p><strong>Address:</strong> 467, Hanumat Sadan, Sakatpura, Kota - 324008, Rajasthan, India</p>
+                    <p><strong>Mobile:</strong> +91 9414571338 (WhatsApp), +91 8209785418</p>
+                    <p><strong>Email:</strong> agrawal.mahaveer75@gmail.com, mndtskota@gmail.com</p>
+                </div>
+                <div>
+                    <h3>Send Us a Message</h3>
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d451.32529741381643!2d75.82399551492144!3d25.18290048182826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f9b416277a147%3A0x10eb8dd96212da03!2s5RMF%2B5P3%2C%20Sakatpura%2C%20Electricity%20Board%20Area%2C%20Kota%2C%20Rajasthan%20324008!5e0!3m2!1sen!2sin!4v1752422411014!5m2!1sen!2sin" width="600" height="450" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">" title="Mahaveer NDT Services Location" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Mahaveer NDT Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
